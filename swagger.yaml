@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: E-Commerce
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://example.com/auth
+    variables: {}
+paths:
+  /register:
+    post:
+      tags:
+        - Auth
+      summary: regitser
+      operationId: regitser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/regitserrequest'
+                - example:
+                    name: anna
+                    email: anna@gmail.com
+                    password: secret
+            example:
+              name: anna
+              email: anna@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: login
+      operationId: login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/loginrequest'
+                - example:
+                    email: anna@gmail.com
+                    password: secret
+            example:
+              email: anna@gmail.com
+              password: secret
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /logout:
+    get:
+      tags:
+        - Auth
+      summary: logout
+      operationId: logout
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    regitserrequest:
+      title: regitserrequest
+      required:
+        - name
+        - email
+        - password
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        name: anna
+        email: anna@gmail.com
+        password: secret
+    loginrequest:
+      title: loginrequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: anna@gmail.com
+        password: secret
+tags:
+  - name: Auth
