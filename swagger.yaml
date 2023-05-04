@@ -4,7 +4,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-  - url: http://example.com/auth
+  - url: https://e-commerce-api-0x5g.onrender.com/auth
     variables: {}
 paths:
   /register:
