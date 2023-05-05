@@ -7,7 +7,7 @@ servers:
   - url: https://e-commerce-api-xrpz.onrender.com/api/v1/auth
     variables: {}
 paths:
-  /auth/register:
+  /register:
     post:
       tags:
         - Auth
@@ -35,7 +35,7 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-  /auth/login:
+  /login:
     post:
       tags:
         - Auth
@@ -61,7 +61,7 @@ paths:
           description: ''
           headers: {}
       deprecated: false
-  /auth/logout:
+  /logout:
     get:
       tags:
         - Auth
