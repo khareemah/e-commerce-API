@@ -4,15 +4,15 @@ info:
   contact: {}
   version: '1.0'
 servers:
-  - url: https://e-commerce-api-0x5g.onrender.com/api/v1/auth
+  - url: http://example.com/auth
     variables: {}
 paths:
   /register:
     post:
       tags:
         - Auth
-      summary: regitser
-      operationId: regitser
+      summary: register
+      operationId: register
       parameters: []
       requestBody:
         description: ''
@@ -20,7 +20,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: '#/components/schemas/regitserrequest'
+                - $ref: '#/components/schemas/registerrequest'
                 - example:
                     name: anna
                     email: anna@gmail.com
@@ -75,8 +75,8 @@ paths:
       deprecated: false
 components:
   schemas:
-    regitserrequest:
-      title: regitserrequest
+    registerrequest:
+      title: registerrequest
       required:
         - name
         - email
