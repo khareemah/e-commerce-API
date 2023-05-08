@@ -1,6 +1,11 @@
 const jwt = require('jsonwebtoken');
 const createTokenUser = (user) => {
-  return { name: user.name, email: user.email, role: user.role };
+  return {
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    userId: user._id,
+  };
 };
 const createJWT = (payload) => {
   return jwt.sign(payload, process.env.JWT_SECRET, {
