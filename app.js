@@ -16,7 +16,7 @@ const swaggerDocument = YAML.load('./swagger.yaml');
 const authRouter = require('./routes/authRoute');
 const userRouter = require('./routes/userRoute');
 const productRouter = require('./routes/productRoute');
-const reviewRouter = require('./route/reviewRoute');
+const reviewRouter = require('./routes/reviewRoute');
 
 const notFoundMiddleware = require('./middleware/notfound');
 const errorHandlerMiddleware = require('./middleware/error-handler');
@@ -34,7 +34,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
-app.use('/api/reviews', reviewRouter);
+app.use('/api/v1/reviews', reviewRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
