@@ -26,9 +26,22 @@ const createReview = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ review });
 };
 
-const getAllReviews = async (req, res) => {};
+const getAllReviews = async (req, res) => {
+  const reviews = await Review.find({}).populate({
+    path: 'product',
+    select: 'name company price',
+  });
+  res.status(StatusCodes.OK).json({ count: reviews.length, reviews });
+};
 
-const getSingleReview = async (req, res) => {};
+const getSingleReview = async (req, res) => {
+  const { id: reviewId } = req.params;
+  const review = await Review.find({ _id: reviewId });
+  if (!review) {
+    throw new CustomError.NotFoundError(`No review with if ${reviewId}`);
+  }
+  res.status(StatusCodes.OK).json({ review });
+};
 
 const updateReview = async (req, res) => {};
 const deleteReview = async (req, res) => {};
