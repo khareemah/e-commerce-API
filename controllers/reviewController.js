@@ -75,7 +75,7 @@ const getSingleProductReviews = async (req, res) => {
   const { id: productId } = req.params;
   const product = await Product.findOne({ _id: productId });
   if (!product) {
-    throw new CustomError.NotFoundError(`No product with id ${productId}`);
+     throw new CustomError.NotFoundError(`No product with id ${productId}`);
   }
   const reviews = await Review.find({ product: productId });
   res.status(StatusCodes.OK).json({ count: reviews.length, reviews });
